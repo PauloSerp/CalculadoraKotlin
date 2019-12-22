@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
                 text_number_id.setText("")
                 numeroF = 0
                 cont = 0
+                
             }
 
             else -> Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
