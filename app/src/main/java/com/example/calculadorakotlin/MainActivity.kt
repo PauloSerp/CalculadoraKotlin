@@ -11,7 +11,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     var cont = 0
-    var numeroF: Int = 0
+    var primeiroNumero: Int = 0
+    var operador: Int = 0
+    var numero: Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -33,39 +35,27 @@ class MainActivity : AppCompatActivity() {
 
             R.id.float_delete_id -> {
                 text_number_id.setText("")
-                numeroF = 0
+                this.numero = 0
                 cont = 0
 
             }
 
             else -> Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
 
-        }
-
-        /*
-        val numero = 1f
-        if(numeroF == 0f) {
-            numeroF = numero
-            text_number_id.setText("$numeroF")
-            numeroF = text_number_id.text.toString().toFloat()
-        }else{
-            text_number_id.setText("$numeroF" + numero)
-            numeroF = text_number_id.text.toString().toFloat()
-        }*/
-
+            }
         }
 
 
     fun adicionaNumero(numero: Int){
 
         if (cont <= 9) {
-            if (numeroF == 0) {
-                numeroF = numero
-                text_number_id.setText("$numeroF")
-                numeroF = text_number_id.text.toString().toInt()
+            if (this.numero == 0) {
+                this.numero = numero
+                text_number_id.setText("${this.numero}")
+                this.numero = text_number_id.text.toString().toInt()
             } else {
-                text_number_id.setText("$numeroF" + numero)
-                numeroF = text_number_id.text.toString().toInt()
+                text_number_id.setText("${this.numero}" + numero)
+                this.numero = text_number_id.text.toString().toInt()
             }
             cont++
         }else{
@@ -74,11 +64,59 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun ClickActionSoma(view: View) {}
-    fun ClickActionSubtracao(view: View) {}
-    fun ClickActionMultiplicacao(view: View) {}
-    fun ClickActionDivisao(view: View) {}
-    fun ClickActionResultado(view: View) {}
+    fun ClickActionSoma(view: View) {
+        primeiroNumero = numero
+        numero = 0
+        operador = 1
+    }
+    fun ClickActionSubtracao(view: View) {
+        primeiroNumero = numero
+        numero = 0
+        operador = 2
+    }
+    fun ClickActionMultiplicacao(view: View) {
+        primeiroNumero = numero
+        numero = 0
+        operador = 3
+    }
+    fun ClickActionDivisao(view: View) {
+        if(numero!=0){
+        primeiroNumero = numero
+        numero = 0
+            operador = 4
+        }else{
+
+            Toast.makeText(this, "1º mandamento da matemática: Não dividiras por 0", Toast.LENGTH_LONG).show()
+        }
+    }
+    fun ClickActionResultado(view: View) {
+        val calcLogic = CalcLogic(primeiroNumero, numero)
+        var resultado = 0
+        when(operador){
+            1 -> {
+            resultado = calcLogic.calculaSoma()
+            text_number_id.setText("$resultado")
+        }
+            2 -> {
+            resultado = calcLogic.calculaSubtracao()
+            text_number_id.setText("$resultado")
+        }
+            3 -> {
+            resultado = calcLogic.calculaMultiplicacao()
+            text_number_id.setText("$resultado")
+        }
+            4 -> {
+            resultado = calcLogic.calculaDivisao()
+            text_number_id.setText("$resultado")
+        }
+
+        else -> {
+            Toast.makeText(this, "Aconteceu algum erro inesperado", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
+    }
 
 }
 

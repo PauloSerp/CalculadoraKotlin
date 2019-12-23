@@ -1,15 +1,14 @@
 package com.example.calculadorakotlin
 
+class CalcLogic(val primeiroNumero: Int, val segundoNumero: Int) {
 
 
 
-class CalcLogic {
+    fun calculaSoma(): Int { return primeiroNumero+segundoNumero}
 
-    /*fun calculaSoma(num: Float, result: Float): Float{
+    fun calculaSubtracao(): Int { return primeiroNumero - segundoNumero}
 
+    fun calculaMultiplicacao(): Int { return primeiroNumero*segundoNumero}
 
-        return
-
-       }*/
-
+    fun calculaDivisao(): Int { return primeiroNumero/segundoNumero}
 }
