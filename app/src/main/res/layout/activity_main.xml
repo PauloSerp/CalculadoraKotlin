@@ -15,7 +15,6 @@
         android:padding="20dp"
         android:textAlignment="center"
         android:textStyle="bold"
-        android:text="12"
         android:textColor="@android:color/white"
         android:textAppearance="@android:style/TextAppearance.Large"/>
 
@@ -27,10 +26,11 @@
         android:layout_height="wrap_content">
 
         <EditText
+            android:backgroundTint="@android:color/white"
             android:focusable="false"
             android:enabled="true"
             android:padding="10dp"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:background="@drawable/button_background"
             android:textAlignment="textEnd"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -164,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:onClick="ClickAction"
+                android:onClick="ClickActionResultado"
                 android:clickable="true"
                 android:src="@drawable/numero_igual"
                 app:backgroundTint="@color/colorPrimaryDark" />
@@ -175,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:onClick="ClickAction"
+                android:onClick="ClickActionSoma"
                 android:clickable="true"
                 android:src="@drawable/numero_mais" />
 
@@ -185,7 +185,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:onClick="ClickAction"
+                android:onClick="ClickActionSubtracao"
                 android:clickable="true"
                 android:src="@drawable/numero_menos" />
 
@@ -195,7 +195,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:onClick="ClickAction"
+                android:onClick="ClickActionMultiplicacao"
                 android:clickable="true"
                 android:src="@drawable/numero_vezes" />
 
@@ -206,7 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:clickable="true"
-                android:onClick="ClickAction"
+                android:onClick="ClickActionDivisao"
                 android:src="@drawable/numero_dividir" />
 
 

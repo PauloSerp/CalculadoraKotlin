@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                 text_number_id.setText("")
                 numeroF = 0
                 cont = 0
-                
+
             }
 
             else -> Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
@@ -74,6 +74,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
- }
+    fun ClickActionSoma(view: View) {}
+    fun ClickActionSubtracao(view: View) {}
+    fun ClickActionMultiplicacao(view: View) {}
+    fun ClickActionDivisao(view: View) {}
+    fun ClickActionResultado(view: View) {}
+
+}
 
 
